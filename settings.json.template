@@ -119,6 +119,12 @@
     "balance": true,
     "coin_supply": true
   },
+  
+  // Peers page settings
+  // ipstack_api_key: ipstack.com Geo IP. This is the replacement of http://freegeoip.net You need an API Key for the Requests 
+  "peers": {
+    "ipstack_api_key": "Your API Key" 
+  },
   // movement page settings
   // min amount: show transactions greater than this value
   // low flag: greater than this value flagged yellow

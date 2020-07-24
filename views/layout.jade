@@ -110,6 +110,8 @@ html
             span.icon-bar
             span.icon-bar
           a.navbar-brand(href='https://weareencrypt.org') #{settings.title}
+          ul.nav.nav-bar.navbar-right
+            img(src='#{settings.logo}', style='margin-top:4px;height:40px;')
         .collapse.navbar-collapse(id='navbar-collapse')
           ul.nav.navbar-nav
             li#home
@@ -156,8 +158,7 @@ html
                 a.navbar-link(href='/info')
                   span.glyphicon.glyphicon-info-sign
                   span.menu-text #{settings.locale.menu_api}
-          ul.nav.nav-bar.navbar-right
-            img(src='#{settings.logo}', style='margin-top:4px;height:40px;')
+          
 
     .col-md-12
       .row

@@ -19,7 +19,7 @@
   //  Options:
   //    bitcoin = Default Bitcoin/Dash/... clones
   //    ripple = Ripple clones
-  "baseType": "bitcoin",
+  "baseType": "pivx",
 
   // The epoch time for a ripple based coin.
   // You can ignore this setting if you're not using a ripple based coin.
@@ -150,7 +150,7 @@
   // Coin info page
   "coininfo": {
     "basic_info_links": [
-      ["Github", "http://github.com/"]
+      ["Github", "http://github.com/EncryptNetwork/EncryptNetwork"]
     ],
     "masternode_required": 500000,
     "block_time_sec": 60,
@@ -163,7 +163,7 @@
   },
 
   // twitter, facebook, googleplus
-  "twitter": "explorerztop",
+  "twitter": "EncryptNetwork",
   "facebook": "yourfacebookpage",
   "googleplus": "yourgooglepluspage",
 

@@ -161,7 +161,7 @@ html
           
 
     .col-md-12
-      .row
+      .row.text-center
         if settings.display.masternodes == false
           .col-lg-1.col-md-2
         if settings.display.coinmarketcap == true
@@ -194,64 +194,81 @@ html
                       ="$"
                       span#cmc_volume_24h -
                       =" USD"
-        else
-          .col-md-2
-          
+        else          
+    .col-md-12
+      .row.text-center
+      if settings.index.show_hashrate
+        .col-md-2.col-md-offset-1
+          .panel.panel-default.hidden-sm.hidden-xs
+            .panel-heading
+              if settings.nethash_units == 'K'
+                strong #{settings.locale.network} (KH/s)
+              else if settings.nethash_units == 'M'
+                strong #{settings.locale.network} (MH/s)
+              else if settings.nethash_units == 'G'
+                strong #{settings.locale.network} (GH/s)
+              else if settings.nethash_units == 'T'
+                strong #{settings.locale.network} (TH/s)
+              else if settings.nethash_units == 'P'
+                strong #{settings.locale.network} (PH/s)
+              else if settings.nethash_units == 'H'
+                strong #{settings.locale.network} (H/s)
+            .panel-body
+              row.text-center
+              if settings.index.difficulty == 'Hybrid'
+               label#hashrate -
+               <br>
+               label#lblX1
+              else
+              label POS/POA&nbsp;
+              <br>
+              label#hashrate -
+        .col-md-2
+          .panel.panel-default.hidden-sm.hidden-xs
+            .panel-heading
+              strong #{settings.locale.difficulty}
+            .panel-body
+              if settings.index.difficulty == 'Hybrid'
+               label#difficulty -
+               <br>
+               label#difficultyHybrid -
+              else
+               label#difficulty -
+        .col-md-2.col-sm-12
+          img(src=settings.logo, style='margin-top:-15px;height:128px;')
         if settings.index.show_coin_supply
-          - supplyPanelSize = settings.display.coinmarketcap == true ? "col-lg-2 col-md-4 col-sm-4" : "col-lg-3 col-md-4 col-sm-4"
-          div(class=supplyPanelSize)
-            .panel.panel-primary.panel-summary
-              .panel-heading
-                span #{settings.locale.ex_supply} (#{settings.symbol})
-              .panel-body(style="padding-top: 35px")
-                row.text-center
-                  .col-md-12
-                    h1#supply -
-        if settings.index.show_hashrate
-          .col-lg-3.col-md-4.col-sm-4
-            .panel.panel-primary.panel-summary
-              .panel-heading
-                span #{settings.locale.network}
-              .panel-body(style="padding-top: 25px")
-                row.text-center
-                  .col-md-12
-                    h1
-                      if settings.index.difficulty == 'Hybrid'
-                        label#hashrate -
-                        <br>
-                        label#lblX1
-                      else
-                        label#hashrate -
-                      if settings.nethash_units == 'K'
-                        =" (KH/s)"
-                      else if settings.nethash_units == 'M'
-                        =" (MH/s)"
-                      else if settings.nethash_units == 'G'
-                        =" (GH/s)"
-                      else if settings.nethash_units == 'T'
-                        =" (TH/s)"
-                      else if settings.nethash_units == 'P'
-                        =" (PH/s)"
-                      else if settings.nethash_units == 'H'
-                        =" (H/s)"
-                    h3
-                      label #{settings.locale.difficulty}: &nbsp;
-                      if settings.index.difficulty == 'Hybrid'
-                        label#difficulty -
-                        <br>
-                        label#difficultyHybrid -
-                      else
-                        label#difficulty -
+        .col-md-2
+          .panel.panel-default.hidden-sm.hidden-xs
+            .panel-heading
+              strong #{settings.locale.ex_supply} (#{settings.symbol})
+            .panel-body
+              row.text-center
+              .col-md-12
+              if settings.index.difficulty == 'Hybrid'
+               label#supply -
+               <br>
+               label#lblX1
+              else
+               row.text-center
+               .col-md-12
+               label#supply -
+              if settings.index.show_market_cap == true && settings.index.show_market_cap_over_price != true
+                <br>
+                label (
+                label#marketCap -
+                label )
         if settings.display.masternodes == true
-          .col-lg-2.col-md-4.col-sm-4
-            .panel.panel-primary.panel-summary
-              .panel-heading
-                span #{settings.locale.masternodes}
-              .panel-body(style="padding-top: 25px")
+        .col-md-2
+          .panel.panel-default.hidden-sm.hidden-xs
+            .panel-heading
+                strong #{settings.locale.masternodes}
+              .panel-body
                 row.text-center
                   .col-md-12
-                    h1#masternodeCount -
-                    h3 online:&nbsp;
+                    label Total:&nbsp;
+                    label#masternodeCount -
+                    <br>
+                    label Active:&nbsp;
                       label#masternodeOnlineCount -
 
     .col-md-12
